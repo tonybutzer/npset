@@ -1,4 +1,4 @@
-PIP=pip install --user .
+PIP=pip install --user -e .
 PIPR=pip install .
 build:
 	${PIP}
