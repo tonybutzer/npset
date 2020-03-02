@@ -1,5 +1,10 @@
 # If not using daymet swe, then add accumswe to output_params list. Otherwise, same output can be obtained from daymet source files.
 #multiprocessing.log_to_stderr(logging.INFO)
+import time
+from .model import leapyearlist
+from .model import get_latitude_radians
+import numpy as np
+
 melt_factor = 4.0
 precip_fraction = 0.167
 web = True
@@ -30,11 +35,16 @@ year_list = [str(x) for x in years]
 years_done = []
 pool = 'null'
 leapyears = leapyearlist()       
+print(leapyears)
 output_params = ['PET','AET','Deficit','rain','runoff','agdd','soil_water','accumswe']
 output_units = {'PET':'mm','AET':'mm','Deficit':'mm','accumswe':'mm','melt':'mm','days_snow':'mm','rain':'mm','water_input_to_soil':'mm','runoff':'mm','agdd':'C','accum_precip':'mm'}       
 accum_precip = np.zeros((8075,7814)).astype(np.float32)
 agdd = np.zeros((8075,7814)).astype(np.float32)
 last_accumswe = np.zeros((8075,7814)).astype(np.float32)
-latitude = get_latitude_radians('1980','tmax') #Radians
 
 # INTERESTING STUFF TO FOLLOW Tony
+# TONY there is no input data - How do we get the data or tweak the code for other data
+
+'''
+latitude = get_latitude_radians('1980','tmax') #Radians
+'''
