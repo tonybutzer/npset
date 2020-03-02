@@ -65,6 +65,10 @@ def get_tmean(year,day_index):
     return tmean,tmax,tmin
     
 def leapyearlist():
+    '''
+    Generates a list of leap years with a very simple and hardcoded alg.
+    Say hi to Tony years 1804 to 2300 excluding the odd duck years
+    '''
     #Generate list of leap years 
     leapyearlist=list(range(1804,2300,4))
     leapyearlist.remove(1900);leapyearlist.remove(2100);leapyearlist.remove(2200)
