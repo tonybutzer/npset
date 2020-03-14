@@ -9,3 +9,7 @@ ting AET and Jennings et al. 2018 T50 coefficients for estimating snow.
 The previous model version used Daymet snow estimates rather than estimating snow.
 """
 
+git reset HEAD~
+
+git reset --hard
+
