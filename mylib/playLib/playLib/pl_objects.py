@@ -19,7 +19,7 @@ class Play(object):
         """Return a Play object whose name is *name* and starting
         """
 
-    def pl_create_png(self, fname, array, cmap='prism', 
+    def pl_create_png(self, fname, array_name, cmap='prism', 
         xlabel='xlabel', ylabel='ylabel',
         title='TITLE', subtitle='SubTitle'):
         """creates a png file
@@ -34,7 +34,10 @@ class Play(object):
             subtitle
 
         """
-        fig, ax = plt.subplots(1, 1, figsize=(10, 8))
+        fig, ax = plt.subplots(1, 1, figsize=(10, 6))
+        #aspect=5/4.4
+        #adjustable='box'
+        #ax.set_aspect(aspect, adjustable=adjustable)
         plt.gca().invert_yaxis()
         title = 'ColorMap== '+cmap
         # title = r'$\sigma_i=15$'
