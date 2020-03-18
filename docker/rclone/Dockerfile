@@ -16,6 +16,7 @@ RUN useradd -r -u 16108 -g 100 butzer
 RUN mkdir /home/butzer && chown butzer /home/butzer \
 	&& mkdir /data && chown butzer /data
 
+ENV theOtherVersion 1.1
 USER butzer
 
 RUN mkdir -p /home/butzer/.config/rclone
