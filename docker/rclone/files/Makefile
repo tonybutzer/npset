@@ -5,7 +5,7 @@ list:
 	rclone listremotes
 
 test:
-	rclone copy /data/log et-data:/ga-et-data/steffi/log
+	rclone copy /data/log et-data:/ga-et-data/steffi/log -P
 
 
 config_aws:
