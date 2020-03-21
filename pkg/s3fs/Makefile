@@ -10,3 +10,14 @@ install:
 	sudo make install)
 	which s3fs
 	echo s3fs-fuse >> .gitignore
+
+
+
+mount_bucket:
+	sudo mkdir -p /mnt/ga-et-data
+	sudo chown ubuntu /mnt/ga-et-data
+	sudo s3fs -o iam_role="tonyEC2" -o url="https://s3-us-west-2.amazonaws.com" -o endpoint=us-west-2 -o dbglevel=info -o curldbg -o allow_other -o use_cache=/tmp ga-et-data /mnt/ga-et-data
+
+
+umount:
+	sudo fusermount -u /home/ubuntu/cloudet
