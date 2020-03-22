@@ -21,7 +21,8 @@ class Play(object):
 
     def pl_create_png(self, fname, array_name, cmap='prism', 
         xlabel='xlabel', ylabel='ylabel',
-        title='TITLE', subtitle='SubTitle'):
+        title='TITLE', subtitle='SubTitle',
+        figsize=(6,6)):
         """creates a png file
 
         Parameters:
@@ -32,22 +33,19 @@ class Play(object):
             ylabel
             title
             subtitle
+            figsize
 
         """
-        fig, ax = plt.subplots(1, 1, figsize=(10, 6))
-        #aspect=5/4.4
-        #adjustable='box'
-        #ax.set_aspect(aspect, adjustable=adjustable)
-        plt.gca().invert_yaxis()
-        title = 'ColorMap== '+cmap
-        # title = r'$\sigma_i=15$'
-        # plt.title(title)
+        
+
+        #aspect=array_name.shape[0]/array_name.shape[1]
+        fig, ax = plt.subplots(1, 1, figsize=figsize)
+        #ax.set_aspect(aspect)
+        #plt.gca().invert_yaxis()
         plt.title(title, fontsize=20, color='blue')
-        plt.suptitle('Temperature on a Cold Day', fontsize=30, color='green')
-        #plt.xlabel('X Value Axis')
-        t = plt.xlabel('X Value', fontsize=20, color='red')
-        plt.ylabel('Temperature in Celsius', fontsize=24, color='purple')
-        #viz_tools.set_aspect(ax)
+        plt.suptitle(subtitle, fontsize=30, color='green')
+        t = plt.xlabel(xlabel, fontsize=20, color='red')
+        plt.ylabel(ylabel, fontsize=24, color='purple')
         mesh = ax.pcolormesh(array_name,cmap=cmap)
         fig.colorbar(mesh)
         if 'png' in fname:
