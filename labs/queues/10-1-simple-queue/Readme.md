@@ -12,3 +12,7 @@
 ## Ref
 
 https://docs.fluentd.org/v/0.12/container-deployment/docker-compose
+
+
+## Tuning Redis
+https://www.techandme.se/performance-tips-for-redis-cache-server/
