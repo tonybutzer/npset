@@ -10,3 +10,7 @@ redis-tune:
 	sudo echo never > /sys/kernel/mm/transparent_hugepage/enabled
 git:
 	(cd /opt/npset; make)
+
+
+fluentd-start:
+	sudo systemctl start td-agent.service
