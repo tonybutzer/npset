@@ -1,5 +1,14 @@
-
+import boto3
 from boto3  import client
+from botocore.exceptions import ClientError
+
+def s3cp(from_file, bucket, prefix_no_slash):
+    #bucket='dev-rhassan'
+    #prefix_no_slash='tony'
+    objecta='{}/{}'.format(prefix,from_file)
+    s3 = boto3.client('s3')
+    with open(from_file, "rb") as f:
+        s3.upload_fileobj(f, bucket, objecta)
 
 def bo_get_bucket_list(bucket_name, prefix):
 
