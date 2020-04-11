@@ -19,7 +19,7 @@ class Qbird(object):
     def __init__(self, rabbit_host, queue_name):
         """Return a Qbird object
         """
-        connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+        connection = pika.BlockingConnection(pika.ConnectionParameters(rabbit_host))
         self.connection=connection
         self.channel = connection.channel()
         self.queue = queue_name
