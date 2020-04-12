@@ -28,12 +28,12 @@ RUN mkdir -p /opt
 WORKDIR /opt
 
 
+ENV cloneVersion 1.7
 RUN git clone https://github.com/tonybutzer/npset
 
 WORKDIR /opt/npset/mylib/playLib
 RUN make build-root
 
-ENV cloneVersion 1.6
 RUN mkdir -p /opt/run
 WORKDIR /opt/run
 COPY requirements.txt /opt/run
