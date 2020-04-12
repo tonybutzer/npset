@@ -38,7 +38,7 @@ class Qbird(object):
     """
 
     def q_set_callback(self, callback_routine):
-        self.channel.basic_consume(queue=self.queue
+        self.channel.basic_consume(queue=self.queue,
             on_message_callback=callback_routine)
             #,auto_ack=True,on_message_callback=callback_routine)
 
