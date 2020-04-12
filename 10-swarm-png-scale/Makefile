@@ -1,0 +1,39 @@
+echo:
+	echo JUST ECHO - nothing to see here
+myjup:
+	python3 -m notebook --allow-root --ip="0.0.0.0" --NotebookApp.token='yaml' --port=8080
+
+install:
+	(cd /opt/k8s101/pkg/jupyter/ ; make install)
+
+git:
+	(cd /opt/npset; make)
+
+init-swarm:
+	docker swarm init --listen-addr 0.0.0.0:8300  --data-path-port 8400 > 0000Instructions
+
+clobber-swarm:
+	docker swarm leave --force
+	cmd='docker swarm leave --force' ; \
+	sshx='ssh -i /home/ubuntu//CHS-LSDSDPAS-butzer.pem ' ; \
+	for ship in `grep ship /etc/hosts | awk '{print $$2}'`; do \
+                echo $$sshx $$ship  $$cmd; \
+                $$sshx $$ship  $$cmd; \
+        done
+
+
+
+join-swarm-workers:
+	sshx='ssh -i /home/ubuntu//CHS-LSDSDPAS-butzer.pem ' ; \
+	cmd=`grep join 0000Instructions | awk -F" " '{print $$1, $$2, $$3, $$4, $$5, $$6}' \
+	| sed 's/To add .*$$//'` ; \
+	for ship in `grep ship /etc/hosts | awk '{print $$2}'`; do \
+		echo $$sshx $$ship  $$cmd; \
+		$$sshx $$ship  $$cmd; \
+	done
+
+
+node:
+	docker node ls
+
+

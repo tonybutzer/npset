@@ -22,6 +22,7 @@ class Qbird(object):
         connection = pika.BlockingConnection(pika.ConnectionParameters(rabbit_host))
         self.connection=connection
         self.channel = connection.channel()
+        self.channel.basic_qos(prefetch_count=1)
         self.queue = queue_name
 
     def q_declare(self):
@@ -38,7 +39,8 @@ class Qbird(object):
 
     def q_set_callback(self, callback_routine):
         self.channel.basic_consume(queue=self.queue
-            ,auto_ack=True,on_message_callback=callback_routine)
+            on_message_callback=callback_routine)
+            #,auto_ack=True,on_message_callback=callback_routine)
 
     def q_consume(self):
         self.channel.start_consuming()
