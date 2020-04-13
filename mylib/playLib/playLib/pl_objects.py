@@ -5,7 +5,7 @@ HERE
 """
 
 import matplotlib.pyplot as plt
-from salishsea_tools import viz_tools
+#from salishsea_tools import viz_tools
 
 class Play(object):
     """Play is a library for exploring data and python concepts
@@ -54,3 +54,5 @@ class Play(object):
             dest = fname + '.png'
         plt.savefig(dest)
         plt.cla()
+        plt.clf()
+        plt.close()

@@ -1,0 +1,12 @@
+version: '3'
+services:
+  redis-service:
+    image: redis
+    ports:
+      - "6379:6379"
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: 172.31.48.237:24224
+        tag: redis.service
+
