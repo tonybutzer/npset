@@ -11,6 +11,12 @@ publish: ## Send this image to docker hub!
 run:
 	docker run -it tbutzer/cogxfer python3 cogxfer.py
 
+exec:
+	docker run -it tbutzer/cogxfer bash
+
+test:
+	docker run -it tbutzer/cogxfer rio info /vsis3/ga-et-data/NDVI_filled/2001/2001001.250_m_NDVI.tif | python -m json.tool
+
 
 git:
 	(cd /opt/npset; make)

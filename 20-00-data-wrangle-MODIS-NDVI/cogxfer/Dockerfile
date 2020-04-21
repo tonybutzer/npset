@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y git && apt-get install -y make &&  apt-
 	apt-get install -y vim && \
 	apt-get install -y ca-certificates && \
 	apt-get install -y python3-pip \
+	&&  apt-get -y install locales \
  	&&  apt-get install -y nmap \
    	&&  apt-get -y install traceroute \
    	&&  apt-get -y install net-tools \
@@ -27,12 +28,17 @@ CMD /bin/bash
 RUN mkdir -p /opt 
 WORKDIR /opt
 
-
 ENV cloneVersion 1.8
 RUN git clone https://github.com/tonybutzer/npset
 
 WORKDIR /opt/npset/mylib/playLib
 RUN make build-root
+
+# Set the locale
+RUN locale-gen en_US.UTF-8  
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8  
 
 RUN mkdir -p /opt/run
 WORKDIR /opt/run

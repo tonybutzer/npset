@@ -2,3 +2,4 @@ pika
 numpy
 s3fs
 matplotlib
+rasterio
