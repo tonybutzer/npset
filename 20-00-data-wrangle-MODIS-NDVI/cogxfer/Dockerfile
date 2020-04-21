@@ -47,7 +47,6 @@ RUN pip3 install -r requirements.txt
 COPY q_spawner.py /opt/run
 COPY cogxfer.py /opt/run
 COPY breed.py /opt/run
-COPY bo_bucket.py /opt/run
 COPY config_cogxfer.json /opt/run
 COPY sleepy.sh /opt/run
 CMD ["/usr/bin/python3", "q_spawner.py"]
