@@ -29,5 +29,9 @@ app.layout = html.Div(children=[
 ])
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     app.run_server(host='0.0.0.0',debug=True, port=8050)
+=======
+    app.run_server(debug=True)
+>>>>>>> de42c52792ef6a58b5f2bb26383d36f87daced89
 
