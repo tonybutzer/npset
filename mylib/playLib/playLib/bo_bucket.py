@@ -29,12 +29,12 @@ def bo_get_bucket_list(bucket_name, prefix):
     file_list = []
     for key in s3_result['Contents']:
         file_list.append(key['Key'])
-    print(f"List count = {len(file_list)}")
+    # print(f"List count = {len(file_list)}")
 
     while s3_result['IsTruncated']:
         continuation_key = s3_result['NextContinuationToken']
         s3_result = s3_conn.list_objects_v2(Bucket=bucket_name, Prefix=prefix, Delimiter="/", ContinuationToken=continuation_key)
         for key in s3_result['Contents']:
             file_list.append(key['Key'])
-        print(f"List count = {len(file_list)}")
+    print(f"List count = {len(file_list)}")
     return file_list
