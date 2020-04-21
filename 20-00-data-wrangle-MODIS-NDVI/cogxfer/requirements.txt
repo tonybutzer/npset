@@ -3,3 +3,4 @@ numpy
 s3fs
 matplotlib
 rasterio
+rio-cogeo

@@ -31,3 +31,22 @@ print("---"*25)
 print(cmd)
 
 os.system(cmd)
+
+cmd = 'ls {}'.format('.')
+os.system(cmd)
+
+
+cmd = 'rio --help'
+os.system(cmd)
+
+cmd = 'echo  /vsis3/{} > ./junkbox/{}'.format(bucket_file, 'blah.txt')
+print("---"*25)
+print(cmd)
+os.system(cmd)
+
+just_file = bucket_file.split('/')[-1]
+cmd = 'rio cogeo create /vsis3/{} junkbox/{}'.format(bucket_file, just_file)
+print("---"*25)
+print("---"*25)
+print(cmd)
+os.system(cmd)
