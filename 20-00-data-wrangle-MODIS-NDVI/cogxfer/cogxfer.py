@@ -51,9 +51,16 @@ cmd = 'rio cogeo create /vsis3/{} {}'.format(bucket_file, local_file)
 print("---"*25)
 print("---"*25)
 print(cmd)
-os.system(cmd)
+#os.system(cmd)
 
 
 mid_prefix = '/'.join(bucket_file.split('/')[1:-1])
 out_prefix = breed.out_prefix + '/' + mid_prefix
-s3cp_delete_local(local_file, breed.out_bucket, out_prefix)
+
+remote_file = breed.out_bucket + '/' + out_prefix + '/' + just_file
+print("---"*25)
+print("---"*25)
+print(local_file)
+print(remote_file)
+
+#s3cp(local_file, remote_file)

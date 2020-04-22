@@ -4,14 +4,11 @@ from boto3  import client
 from botocore.exceptions import ClientError
 
 def s3cp(from_file, bucket, prefix_no_slash):
-    objecta='{}/{}'.format(prefix_no_slash,from_file)
+    bucket = to_file.split('/')[0]
     s3 = boto3.client('s3')
     with open(from_file, "rb") as f:
-        s3.upload_fileobj(f, bucket, objecta)
+        s3.upload_fileobj(f, bucket, to_file)
 
-def s3cp_delete_local(from_file, bucket, prefix_no_slash):
-    s3cp(from_file, bucket, prefix_no_slash)
-    os.remove(from_file)
 
 def bo_get_bucket_list(bucket_name, prefix):
 
