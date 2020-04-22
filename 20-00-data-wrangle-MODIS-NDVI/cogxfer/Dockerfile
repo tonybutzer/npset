@@ -28,7 +28,7 @@ CMD /bin/bash
 RUN mkdir -p /opt 
 WORKDIR /opt
 
-ENV cloneVersion 2.1
+ENV cloneVersion 2.2
 RUN git clone https://github.com/tonybutzer/npset
 
 WORKDIR /opt/npset/mylib/playLib

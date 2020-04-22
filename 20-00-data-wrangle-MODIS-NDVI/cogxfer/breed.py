@@ -15,6 +15,7 @@ class Breed():
             self.in_bucket = data['in_bucket']
             self.out_bucket = data['out_bucket']
             self.in_prefix = data['in_prefix']
+            self.out_prefix = data['out_prefix']
         else:
             print("No config config_cogxfer.json file -- Please -- create one as documented in the README.md!")
             exit(False)
