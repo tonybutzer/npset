@@ -1,14 +1,24 @@
 import os
+import subprocess
 import boto3
 from boto3  import client
 from botocore.exceptions import ClientError
 
-def s3cp(from_file, bucket, prefix_no_slash):
-    bucket = to_file.split('/')[0]
-    s3 = boto3.client('s3')
-    with open(from_file, "rb") as f:
-        s3.upload_fileobj(f, bucket, to_file)
+def subprocess_cmd(command):
+    process = subprocess.Popen(command,stdout=subprocess.PIPE, shell=True)
+    proc_stdout = process.communicate()[0].strip()
+    stupidBytesObject = proc_stdout
+    outStr = (stupidBytesObject.decode("utf-8"))
+    #print(outStr)
+    return(outStr)
 
+def s3cp(fromfile, tofile):
+        print ("hello from s3get copying file " + fromfile)
+        infile = fromfile
+        outfile = tofile
+        pushcmd = "aws s3 cp %s %s" % (infile, outfile)
+        print (pushcmd)
+        subprocess_cmd(pushcmd)
 
 def bo_get_bucket_list(bucket_name, prefix):
 
