@@ -2,7 +2,7 @@ import os
 
 from breed import Breed
 from playLib.bo_bucket import bo_get_bucket_list
-from playLib.bo_bucket import s3cp_delete_local
+from playLib.bo_bucket import s3cp
 
 print("hello from Tony cogxfer")
 print("hello AGAIN from Tony cogxfer")
@@ -51,16 +51,16 @@ cmd = 'rio cogeo create /vsis3/{} {}'.format(bucket_file, local_file)
 print("---"*25)
 print("---"*25)
 print(cmd)
-#os.system(cmd)
+os.system(cmd)
 
 
 mid_prefix = '/'.join(bucket_file.split('/')[1:-1])
 out_prefix = breed.out_prefix + '/' + mid_prefix
 
-remote_file = breed.out_bucket + '/' + out_prefix + '/' + just_file
+remote_file = 's3://' + breed.out_bucket + '/' + out_prefix + '/' + just_file
 print("---"*25)
 print("---"*25)
 print(local_file)
 print(remote_file)
 
-#s3cp(local_file, remote_file)
+s3cp(local_file, remote_file)
