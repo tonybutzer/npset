@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  redis-service:
+    image: redis
+    ports:
+      - "6379:6379"
+  tony:
+    image: tbutzer/bash-tester
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+
+

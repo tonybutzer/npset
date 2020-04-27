@@ -11,6 +11,9 @@ log=log_make_logger('Q_SPAWNER')
 def spawn_cmd(message):
     msg = 'I will spawn thee: ', message
     log.info(msg)
+    cmd = 'python3 ./' + message
+    log.info(cmd)
+    os.system(cmd)
 
 def callback(ch, method, properties, body):
     msg = body.decode('UTF-8')
@@ -18,10 +21,6 @@ def callback(ch, method, properties, body):
     log.info(msg)
     spawn_cmd(msg)
 
-    cmd = 'python3 ./' + msg
-
-    log.info(cmd)
-    os.system(cmd)
     ch.basic_ack(delivery_tag=method.delivery_tag)    
 
 

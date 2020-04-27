@@ -9,7 +9,7 @@ publish: ## Send this image to docker hub!
 
 
 run:
-	docker run -it -v `pwd`/junk:/opt/run/junkbox tbutzer/cogxfer python3 cogxfer.py
+	docker run -it -v `pwd`/junk:/opt/run/junkbox tbutzer/cogxfer python3 cogxfer.py dev-et-data/NDVI_filled/2001/2001002.250_m_NDVI.tif
 
 exec:
 	docker run -it tbutzer/cogxfer bash
