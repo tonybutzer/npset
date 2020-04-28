@@ -9,7 +9,7 @@ global log
 log=log_make_logger('Q_SPAWNER')
 
 
-redisURL = 'http://redis'
+redisURL = 'redis://redis-service'
 task='COGS'
 workerbee(redisURL,task)
 

@@ -5,3 +5,7 @@ build:
 
 build-root:
 	${PIPR}
+
+
+git:
+	(cd /opt/npset; make)

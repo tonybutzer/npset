@@ -25,3 +25,5 @@ def workerbee(redisServer, task):
     print("the TASK is %s" % task)
 
     queue = Queue(connection=Redis.from_url(redisServer))
+    worker = SimpleWorker([queue], connection=queue.connection)
+    worker.work()
