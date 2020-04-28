@@ -1,7 +1,7 @@
 """Now Consume those Right here"""
 import os
 import time
-from playLib.wq_que import wq_listener
+from playLib.rq_que import workerbee
 
 from playLib.log_logger import log_make_logger
 
@@ -9,5 +9,7 @@ global log
 log=log_make_logger('Q_SPAWNER')
 
 
-wq_listener()
+redisURL = 'redis://redis-service'
+task='COGS'
+workerbee(redisURL,task)
 
