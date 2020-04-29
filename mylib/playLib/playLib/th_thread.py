@@ -1,6 +1,12 @@
+import os
 import queue
 import threading
 import time
+
+from playLib.log_logger import log_make_logger
+
+global log
+log=log_make_logger('TH_DISPATCHER')
 
 
 class th_thread (threading.Thread):
@@ -34,7 +40,14 @@ class th_thread (threading.Thread):
         self.exit_flag = 1
 
     def _execute_work(self, work):
-        print('executing this, ', work)
+        task = work
+        print("th_dispatch the TASK is %s" % task)
+        msg = 'I will spawn thee: ', task
+        log.info(msg)
+        cmd = 'python3 ./' + task
+        log.info(cmd)
+        os.system(cmd)
+
 
 
 class th_threads():

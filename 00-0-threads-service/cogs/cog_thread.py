@@ -25,11 +25,11 @@ for file_obj in lista:
         msg = str(cnt)
         msg=cmd
         print(msg)
-        if (cnt < maxcnt):
+        if (cnt <= maxcnt):
             work_list.append(msg)
 
 #work_list = ["One", "Two", "Three", "Four", "Five"] +  ["One", "Two", "Three", "Four", "Five"]
-thread_count = 5
+thread_count = 10
 
 my_threads = th_threads(thread_count)
 

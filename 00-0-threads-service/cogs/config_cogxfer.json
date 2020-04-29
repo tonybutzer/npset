@@ -1,0 +1,6 @@
+{
+	"in_bucket": "ga-et-data",
+	"out_bucket": "dev-et-data",
+	"in_prefix": "NDVI_filled/2003",
+	"out_prefix": "compressed"
+}
