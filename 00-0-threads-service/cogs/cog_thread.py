@@ -11,7 +11,7 @@ from playLib.bo_bucket import bo_get_bucket_list
 bucket_name = 'dev-et-data'
 prefix='NDVI_filled/2001/'
 lista=bo_get_bucket_list(bucket_name, prefix)
-maxcnt = 20
+maxcnt = 366
 cnt=0
 bucket='dev-et-data'
 work_list = []
@@ -29,7 +29,7 @@ for file_obj in lista:
             work_list.append(msg)
 
 #work_list = ["One", "Two", "Three", "Four", "Five"] +  ["One", "Two", "Three", "Four", "Five"]
-thread_count = 10
+thread_count = 12
 
 my_threads = th_threads(thread_count)
 

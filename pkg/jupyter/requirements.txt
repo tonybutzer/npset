@@ -1,0 +1,7 @@
+jupyter
+pika
+matplotlib
+s3fs
+awscli
+rasterio
+rio-cogeo
