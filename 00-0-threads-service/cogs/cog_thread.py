@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import sys
 import queue
 import threading
 import time
@@ -7,9 +8,12 @@ import time
 from playLib.th_thread import th_threads
 from playLib.bo_bucket import bo_get_bucket_list
 
+arg_names = ['command', 'year', 'thread_count']
+args = dict(zip(arg_names, sys.argv))
+
 
 bucket_name = 'dev-et-data'
-prefix='NDVI_filled/2002/'
+prefix='NDVI_filled/' + args['year'] + '/'
 lista=bo_get_bucket_list(bucket_name, prefix)
 maxcnt = 366
 cnt=0
@@ -29,7 +33,13 @@ for file_obj in lista:
             work_list.append(msg)
 
 #work_list = ["One", "Two", "Three", "Four", "Five"] +  ["One", "Two", "Three", "Four", "Five"]
-thread_count = 20
+if 'thread_count' in args: 
+    print("thread_count, ", end =" ") 
+    print("value =", args['thread_count'])
+    thread_count = int(args['thread_count'])
+else: 
+    print("Not present") 
+    thread_count = 11
 
 my_threads = th_threads(thread_count)
 

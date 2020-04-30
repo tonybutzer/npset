@@ -1,5 +1,5 @@
 run:
-	python3 cog_thread.py
+	nohup python3 cog_thread.py &
 
 
 git:
