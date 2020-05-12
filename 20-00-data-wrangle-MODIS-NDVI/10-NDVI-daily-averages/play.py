@@ -10,7 +10,7 @@ for i in range(1,num_days+1):
     work_list.append(cmd)
     
 
-thread_count=12
+thread_count=64
 
 
 my_threads = th_threads(thread_count)

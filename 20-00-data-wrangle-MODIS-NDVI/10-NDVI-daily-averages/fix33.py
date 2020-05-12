@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+import sys
+
+my_missing_file = 247
 from playLib.th_thread import th_threads
 
 work_list=[]

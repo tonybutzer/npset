@@ -47,7 +47,9 @@ def clip_by_geojson(infile,outfile,geojson_file):
         meta['transform'] = rio.windows.transform(my_window, src.transform)
         print(meta)
 
-        with rio.open(outfile, 'w', **meta) as dst:
+        #with rio.open(outfile, 'w', **meta) as dst:
+        with rio.open(outfile, 'w', **meta, compress="DEFLATE",
+                   tiled=True, blockxsize=256, blockysize=256) as dst:
             dst.write(rst, 1)
 
         return rst
