@@ -1,0 +1,15 @@
+{
+    "Credentials": {
+        "AccessKeyId": "ASIAVPD26LM2JGTNPNVJ",
+        "SecretAccessKey": "SrodOZkn8riKvpSxvl130edzlQAdCLpwo1kUDSmB",
+        "SessionToken": "FwoGZXIvYXdzEHMaDNw47R4o5g9xjuCM+iKSBK5NMlGQy1orGU50vcTIKpEePz/RlAnb8OYvvSdtZJDYNmGVUB23VidpLrCtqx0mNkhO68CPBpfFqMOjNdc/c+y72KUK9UvpFwa5lxPBvgpUj6Lk5h7R7UoSsaNszd0l0GLU7BIPehPZhYPYdSzu547y+8Ocgo5vKf3bJD38Jd0lM+Xp2pVGG/PN3qHEA/QM4T4ELmHIM5yDaHUe3HhdgTltYsqOoqYmhtH6KMC+pFzhR0Euw5eQ4NM+EUdl1WsL38NjNm6h5hLEkr8VKjqVv+O9W6hT8jrSJzA4VMjsvxv6IOV32hDlX4keE1UE94JSwYm6QyaPdc3QgjrDdAJ4G7gBvF2bndzbFpA+mOhzWNy11cmpyD4OyPdATyJGxhLwa4AvMY4aT9y8ty+9BF+wniGMu2Xe6bkPdOKRHA8mrLFDS16PDPQvKzwJu+l8sFn6UV4EAkKTUND2gOswwVVYPRG0V87IcH8ygQbTgDbkUIgXGt7f7vGkyI+GLVVnejXnV8NWFJQ8fMhbXUVigLLaY4rL99KF6GbfsK5ulF+Yst2xlNRtBfoATOu9FP2BGkZYg057xbKdyT7eDhBshYlCtHduIXc9BoYYRiwyZfjJlSIe5c6rzlMkqWZIcd0wMAJgeTNrqnG6pL0e9BSO10DbmcJnnFvgNdnEH/D1qfHsNSv5TWKPkNBWhRzZbuLcuiKVoWgSKNfVgPYFMiq0olFxXIkvjLJjZKkFXtpCGqvYNbGB+fbTdW3EDYt/oCJvUgX9hbZFm1g=",
+        "Expiration": "2020-05-16T19:03:03Z"
+    },
+    "SubjectFromWebIdentityToken": "system:serviceaccount:pangeo:daskkubernetes",
+    "AssumedRoleUser": {
+        "AssumedRoleId": "AROAVPD26LM2P2SK3YXYF:gdal-session-1589652179",
+        "Arn": "arn:aws:sts::376067480372:assumed-role/eks-pangeo-node/gdal-session-1589652179"
+    },
+    "Provider": "arn:aws:iam::376067480372:oidc-provider/oidc.eks.us-west-2.amazonaws.com/id/302311CEF7AB16C5A47EFFE718465D98",
+    "Audience": "sts.amazonaws.com"
+}
