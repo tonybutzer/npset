@@ -1,5 +1,5 @@
-PIP=pip3 install --user -e .
-PIPR=pip3 install .
+PIP=pip install --user -e .
+PIPR=pip install .
 build:
 	${PIP}
 
