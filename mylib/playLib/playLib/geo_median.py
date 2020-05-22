@@ -4,7 +4,7 @@ import os
 from rasterio.windows import from_bounds
 import numpy as np
 
-def clip_by_geojson(infile,geojson_file):
+def clip_by_geojson(infile,geojson_file, nan='zero'):
 
     filepath=infile
     geoms = gpd.read_file(geojson_file)
@@ -22,31 +22,10 @@ def clip_by_geojson(infile,geojson_file):
 
         rst = src.read(1, window=my_window)
 
-        #rst[(rst < 0)] = 0
-        rst[(rst < 0)] = np.nan
-
-        return rst
-
-def clip_by_geojson(infile,geojson_file):
-
-    filepath=infile
-    geoms = gpd.read_file(geojson_file)
-    print(geoms)
-    left = geoms.bounds.minx[0]
-    right = geoms.bounds.maxx[0]
-    top = geoms.bounds.maxy[0]
-    bottom = geoms.bounds.miny[0]
-
-    print(left,right,top,bottom)
-
-    with rio.open(filepath) as src:
-        my_window = from_bounds(left, bottom, right, top, src.transform)
-        print(my_window)
-
-        rst = src.read(1, window=my_window)
-
-        rst[(rst < 0)] = 0
-        #rst[(rst < 0)] = np.nan
+        if (nan == 'zero'):
+            rst[(rst < 0)] = 0
+        else:
+            rst[(rst < 0)] = np.nan
 
         return rst
 
@@ -82,11 +61,11 @@ def xarray_from_list(file_list, time_list, observation):
     return DS
 
 import numpy
-def clipped_np3d_from_list(file_list, geojson_file):
+def clipped_np3d_from_list(file_list, geojson_file, nan='zero'):
     nps=[]
     for i in range(0, len(file_list)):
         url = file_list[i]
-        ary=clip_by_geojson(url,geojson_file)
+        ary=clip_by_geojson(url,geojson_file, nan)
         nps.append(ary)
     #NPA= numpy.concatenate(nps,axis=0)
     NPA= numpy.dstack(tuple(nps))
