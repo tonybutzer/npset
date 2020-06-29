@@ -24,7 +24,7 @@ RUN curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip \
 	&& chown root:root /usr/bin/rclone \
 	&& chmod 755 /usr/bin/rclone 
 
-ENV theOtherVersion 1.1
+ENV theOtherVersion 1.2
 USER butzer
 
 RUN mkdir -p /home/butzer/.config/rclone
